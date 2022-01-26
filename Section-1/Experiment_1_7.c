@@ -10,11 +10,13 @@ int main()
     printf("Enter the second number\n");
     scanf("%d",&num2);
 
+    printf("The entered number are : %d and %d\n",num1,num2);
+
     num1=num1+num2;
     num2=num1-num2;
     num1=num1-num2;
 
-    printf("The swap of two input number is %d and %d",num1,num2);
+    printf("After Swapping the two number are : %d and %d\n",num1,num2);
 
 
 
