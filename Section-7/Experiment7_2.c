@@ -2,15 +2,14 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
+    int A[5][5], size, i, j;
 
-    int A[5][5], C[5][5], size, i, j;
-
-    printf("Enter the  Order of the square matrix\n");
+    printf("Enter the Order of the Square Matrix\n");
     scanf("%d", &size);
 
-    printf("Enter the %d X %d matrix\n", size, size);
+    printf("Enter the elements of %d X %d Matrix\n", size, size);
 
     for (i = 0; i < size; i++)
     {
@@ -19,6 +18,7 @@ int main()
         {
             scanf("%d", &A[i][j]);
         }
+        printf("\n");
     }
 
     printf("The entered matrix is : \n");
@@ -33,28 +33,25 @@ int main()
     }
     printf("\n");
 
-
-
-
-    // The Transpose of Matrix A
-    int isSymmetric = 1;
-    for (i = 0; i < size && isSymmetric; i++)
+    for (i = 0; i < 4; i++)
     {
-        for (j = 0; j < size; j++)
+        for (j = 0; j < i; j++)
         {
-            if (A[i][j] != C[i][j])
+            if (i > j)
             {
-                isSymmetric=0;
-                break;
+                A[i][j] = 0;
             }
         }
     }
-    if(isSymmetric == 1)
+    printf("The entered matrix is : \n");
+
+    for (i = 0; i < size; i++)
     {
-        printf("\nThe given matrix is Symmetric matrix: \n");
+        for (j = 0; j < size; j++)
+        {
+            printf("%d\t", A[i][j]);
+        }
+        printf("\n");
     }
-    else
-    {
-        printf("\nThe given matrix is not Symmetric matrix.");
-    }
+    printf("\n");
 }
