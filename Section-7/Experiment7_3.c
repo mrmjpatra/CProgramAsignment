@@ -37,9 +37,9 @@ void main()
         {
             sumRow = sumRow + A[i][j];
         }
-        
+
         printf("The sum of %d Row element is : %d\n", i + 1, sumRow);
-        sumRow=0;
+        sumRow = 0;
     }
 
     printf("\n\n");
@@ -49,8 +49,8 @@ void main()
         {
             sumCol = sumCol + A[j][i];
         }
-        
+
         printf("The sum of %d Column element is : %d\n", i + 1, sumCol);
-        sumCol=0;
+        sumCol = 0;
     }
 }

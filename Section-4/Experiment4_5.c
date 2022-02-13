@@ -31,6 +31,7 @@ int main()
         m3=units-300;
     }
     amount=(m1*0.80)+(m2*1.30)+(m3*2.00)+100;
+    
     if(amount>400){
         amount=amount+(amount*0.15);
     }

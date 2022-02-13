@@ -5,27 +5,27 @@
 int main()
 {
     int sub1, sub2, sub3, sub4, sub5;
-    //marks scan for subject-1
+    // marks scan for subject-1
     printf("Enter the marks in Subject-1\n");
     scanf("%d", &sub1);
-    //marks scan for subject-2
+    // marks scan for subject-2
     printf("Enter the marks in Subject-2\n");
     scanf("%d", &sub2);
-    //marks scan for subject-3
+    // marks scan for subject-3
     printf("Enter the marks in Subject-3\n");
     scanf("%d", &sub3);
-    //marks scan for subject-4
+    // marks scan for subject-4
     printf("Enter the marks in Subject-4\n");
     scanf("%d", &sub4);
-    //marks scan for subject-5
+    // marks scan for subject-5
     printf("Enter the marks in Subject-5\n");
     scanf("%d", &sub5);
 
     float avg = (sub1 + sub2 + sub3 + sub4 + sub5) / 5.0;
 
-        if (avg >= 70)
+    if (avg >=70)
     {
-        printf("Your are failed in the exam\n");
+        printf("You got first division in the exam");
     }
     else if (avg < 70 && avg >= 50)
     {
@@ -38,7 +38,7 @@ int main()
 
     else
     {
-        printf("You got first division in the exam");
+        printf("Your are failed in the exam\n");
     }
     return 0;
 }

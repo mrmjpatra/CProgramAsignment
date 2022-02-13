@@ -24,5 +24,6 @@ int main()
         printf("%f in Celsius scale is %.2f",far,cel);
     }
 
+
     return 0;
 }

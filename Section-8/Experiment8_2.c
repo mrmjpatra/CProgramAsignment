@@ -1,5 +1,6 @@
 /* Write a program that will count the number of occurrences of a specific character in a given line of text.*/
 #include <stdio.h>
+#include <string.h>
 
 void main()
 {
@@ -10,7 +11,7 @@ void main()
     printf("Enter the character you want to search : ");
     scanf("%c", &ch);
 
-    for (int i = 0; str[i] != '\0'; i++)
+    for (int i = 0; i<=strlen(str); i++)
     {
         if (str[i] == ch)
         {

@@ -7,13 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include<conio.h>
+#include <conio.h>
 
 void main()
 {
     int A[8][8], B[8][8], add[8][8], sub1[8][8], sub2[8][8], mul[10][10], r1, r2, c1, c2, i, j, choice;
 
-    //1st Matrix
+    // Creating 1st Matrix
     printf("Enter the number of Rows of  Matrix-A  : \n");
     scanf("%d", &r1);
     printf("Enter the number of Columns of  Matrix-A  : \n");
@@ -28,7 +28,7 @@ void main()
         }
     }
 
-    //2nd Matrix
+    // Creating 2nd Matrix
     printf("Enter the number of Rows of Matrix-B : \n");
     scanf("%d", &r2);
     printf("Enter the number of Columns of Matrix-B : \n");
@@ -42,7 +42,7 @@ void main()
             scanf("%d", &B[i][j]);
         }
     }
-
+    // printing the matrix-A
     printf("Matrix-A is :\n");
     for (i = 0; i < r1; i++)
     {
@@ -52,7 +52,7 @@ void main()
         }
         printf("\n");
     }
-
+    // Printing the matrix-B
     printf("Matrix-B is :\n\n");
 
     for (i = 0; i < r2; i++)
@@ -66,7 +66,7 @@ void main()
 
     while (1)
     {
-        //Showing the choice to the user
+        // Showing the choice to the user
         printf("\n");
         printf("Enter 1 for A+B\n");
         printf("Enter 2 for A-B\n");
@@ -78,7 +78,7 @@ void main()
         switch (choice)
         {
         case 1:
-            //Adding Of Two Matrix(A+B)
+            // Adding Of Two Matrix(A+B)
             if (r1 == r2 && c1 == c2)
             {
                 for (i = 0; i < r1; i++)
@@ -109,7 +109,7 @@ void main()
             break;
 
         case 2:
-            //Substraction of Matrix B from A (A-B)
+            // Substraction of Matrix B from A (A-B)
             if (r1 == r2 && c1 == c2)
             {
                 for (i = 0; i < r1; i++)
@@ -138,7 +138,7 @@ void main()
             }
             break;
         case 3:
-            //Substraction of Matrix A from B (B-A)
+            // Substraction of Matrix A from B (B-A)
 
             if (r1 == r2 && c1 == c2)
             {
@@ -168,7 +168,7 @@ void main()
             }
             break;
         case 4:
-            //Multiplication of Two Matrix (A X B)
+            // Multiplication of Two Matrix (A X B)
             if (c1 == r2)
             {
                 for (i = 0; i < r1; i++)
@@ -208,7 +208,6 @@ void main()
             printf("INVALID!!! CHOICE\n");
             break;
         }
-
     }
     getch();
 }

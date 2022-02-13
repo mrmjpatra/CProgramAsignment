@@ -1,5 +1,5 @@
 /*Write programs to print the following structure:
- 
+
 
 */
 
@@ -12,15 +12,15 @@ void main()
 
     for (row = 1; row <= 4; row++)
     {
+        
         for (space = 1; space <= (4 - row); space++)
         {
             printf(" ");
-            for (col = 1; col <= row; col++)
-            {
-                printf("*");
-                
-            }
-        printf("\n");
         }
+        for (col = 1; col <= (2*row-1); col++)
+        {
+            printf("*");
+        }
+        printf("\n");
     }
 }

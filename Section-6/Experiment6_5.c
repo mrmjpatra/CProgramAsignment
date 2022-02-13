@@ -14,6 +14,7 @@ int main()
         printf("Enter the %d number : ", i + 1);
         scanf("%d", &arr[i]);
     }
+
     printf("The entered number are : ");
     for (int i = 0; i < size; i++)
     {

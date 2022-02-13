@@ -35,10 +35,22 @@ void main()
 
     // The Transpose of Matrix A
 
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            C[i][j]=A[j][i];
+        }
+        
+    }
+    
+
     int isSymmetric = 1;
+
+
     for (i = 0; i < size; i++)
     {
-        printf("%d\n",isSymmetric);
+        
         for (j = 0; j < size; j++)
         {
             if (A[i][j] != C[i][j])

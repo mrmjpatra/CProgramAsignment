@@ -28,7 +28,7 @@ void main()
     {
         for (j = i + 1; j < n; j++)
         {
-            if (num[i] < num[j])
+            if (num[j] < num[i])
             {
                 a = num[i];
                 num[i] = num[j];

@@ -11,7 +11,7 @@ void main()
 
     for (int i = 0; i < size; i++)
     {
-        scanf("%u", arr + i);
+        scanf("%u", ptr + i);
     }
 
     for (i = 0, j = size - 1; i < size / 2; i++, j--)
@@ -23,6 +23,6 @@ void main()
 
     for (int i = 0; i < size; i++)
     {
-        printf("%u\t", *(arr + i));
+        printf("%u\t", *(ptr + i));
     }
 }

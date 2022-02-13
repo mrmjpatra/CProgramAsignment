@@ -33,11 +33,11 @@ void main()
     {
         for (j = 0; j < size; j++)
         {
-            if (i==j)
+            if (i!=j)
             {
-                sum = sum + A[i][j];
-            }
             continue;
+            }
+                sum = sum + A[i][j];
         }
     }
     printf("The sum of the diagonal elements is %d : ",sum);
