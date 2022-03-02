@@ -25,14 +25,14 @@ void main()
 
         for (int i = 0; str1[i] != '\0'; i++)
         {
-            if (str1[i] == str2[i])
+            if (str1[i] != str2[i])
             {
-                printf("They are same string");
+                printf("They are not same string");
                 break;
             }
             else
             {
-                printf("They are  not same string");
+                printf("They are same string");
                 break;
             }
         }

@@ -137,7 +137,7 @@ int mergeAToB(int size1, int size2, int arrA[], int arrB[], int arrC[])
         arrC[i] = arrA[i];
     }
 
-    for (i = size2, j = 0; (i < sizeC && j < size2); i++, j++)
+    for (i = size1, j = 0; (i < sizeC && j < size2); i++, j++)
     {
         arrC[i] = arrB[j];
     }

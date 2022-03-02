@@ -1,4 +1,4 @@
-
+//Write a program using function to input a m x n matrix (of integers) and then transpose it.
 #include <stdio.h>
 
 void create(int row, int col, int matrix[row][col])
@@ -22,7 +22,7 @@ void print(int m, int n, int arr[m][n])
         for (j = 0; j < n; j++)
         {
 
-            printf("%d ", arr[i][j]);
+            printf("%5d ", arr[i][j]);
         }
         printf("\n");
     }

@@ -1,145 +1,70 @@
-/* Write a program using function to input a m x n matrix (of integers) and then find the largest, the 2nd largest, the smallest, and the 2nd smallest numbers in it*/
-#include <stdio.h>
-
-void createMatrix(int arr[50][50], int row, int col)
+/* */
+#include<stdio.h>
+void createMatrix(int matrix[][50], int row, int col)
 {
+    int i,j;
     printf("Enter the element to the %d X %d Matrix\n", row, col);
-    for (int i = 0; i < row; i++)
+    for (i = 0; i < row; i++)
     {
-        printf("Enter the elements to the %d row\n", i + 1);
-        for (int j = 0; j < col; j++)
+        for ( j = 0; j < col; j++)
         {
-            scanf("%d", &arr[i][j]);
+            scanf("%d",&matrix[i][j]);
         }
+
     }
 }
-
-void showMatrix(int arr[50][50], int row, int col)
+void showMatrix(int matrix[][50], int row, int col)
 {
+    int i,j;
     printf("Entered Matrix \n");
-    for (int i = 0; i < row; i++)
+    for (i = 0; i < row; i++)
     {
-        for (int j = 0; j < col; j++)
+        for (j = 0; j < col; j++)
         {
-            printf("%d ", arr[i][j]);
+            printf("%5d ", matrix[i][j]);
         }
         printf("\n");
     }
 }
-
-void sort(int arr[50][50], int row, int col)
+void sort(int matrix[][50],int row,int col)
 {
-    int temp;
-    for (int i = 0; i < row; i++)
+    int i,j,k,temp;
+    for(i=0; i<row; i++)
     {
-        for (int j = 0; j < col; j++)
+        for(j=0; j<col; j++)
         {
-            if (arr[i][j] < arr[i][j])
+            for(k=j+1; k<col; k++)
             {
-                temp = arr[i][j];
-                arr[i][j] = arr[i][j];
-                arr[i][j] = temp;
-            }
-        }
-    }
-}
-
-int largest(int arr[50][50], int row, int col)
-{
-    int max = arr[0][0];
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            if (arr[i][j] > max)
-            {
-                max = arr[i][j];
-            }
-        }
-    }
-    printf("The largest element is: %d\n", max);
-
-    int m = arr[0][0];
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            if (arr[i][j] > m)
-            {
-                if (arr[i][j] == max)
+                if(matrix[i][j]>matrix[i][k])
                 {
-                    continue;
+                    temp=matrix[i][j];
+                    matrix[i][j]=matrix[i][k];
+                    matrix[i][k]=temp;
                 }
-
-                m = arr[i][j];
             }
         }
     }
-    printf("The 2nd largest element is: %d\n", m);
-    return max;
-}
-
-void smallest(int arr[50][50], int row, int col, int max)
-{
-    int min = arr[0][0];
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            if (arr[i][j] < min)
-            {
-                min = arr[i][j];
-            }
-        }
-    }
-    printf("The smallest element is: %d\n", min);
-
-    int m = arr[0][0];
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            if (arr[i][j] < max)
-            {
-                if (arr[i][j] == min)
-                {
-                    continue;
-                }
-
-                m = arr[i][j];
-            }
-        }
-    }
-    printf("The 2nd smallest element is: %d\n", m);
 }
 
 void main()
 {
+    int row,col,i,j,k,temp;
+    printf("Enter the number of rows : ");
+    scanf("%d",&row);
+    printf("Enter the number of columns : ");
+    scanf("%d",&col);
 
-    int arr[50][50];
-    int row, col, len, max;
-    printf("Enter the number of rows of the matrix: ");
-    scanf("%d", &row);
-    printf("Enter the number of columns of the matrix: ");
-    scanf("%d", &col);
+    int matrix[50][50];
+    createMatrix(matrix,row,col);
+    showMatrix(matrix,row,col);
+    sort(matrix,row,col);
+    showMatrix(matrix,row,col);
 
-    createMatrix(arr, row, col);
-    // showMatrix(arr, row, col);
-    // max = largest(arr, row, col);
-    // smallest(arr, row, col, max);
+    printf("The largest integer in the Matrix is : %d\n",matrix[row-1][col-1]);
+    printf("The 2nd largest integer in the Matrix is : %d\n",matrix[row-1][col-2]);
+    printf("The smallest integer in the Matrix is : %d\n",matrix[0][0]);
+    printf("The 2nd smallest integer in the Matrix is :%d \n",matrix[0][1]);
 
-    int temp;
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            if (arr[i][j] < arr[i][j])
-            {
-                temp = arr[i][j];
-                arr[i][j] = arr[i][j];
-                arr[i][j] = temp;
-            }
-        }
-    }
-     showMatrix(arr, row, col);
+
+
 }
