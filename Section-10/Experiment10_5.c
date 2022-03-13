@@ -1,22 +1,22 @@
 /* */
-#include<stdio.h>
-void createMatrix(int matrix[][50], int row, int col)
+#include <stdio.h>
+void createMatrix(int matrix[][10], int row, int col)
 {
-    int i,j;
+    int i, j;
     printf("Enter the element to the %d X %d Matrix\n", row, col);
     for (i = 0; i < row; i++)
     {
-        for ( j = 0; j < col; j++)
+        printf("Enter the elements to %d row\n", i + 1);
+        for (j = 0; j < col; j++)
         {
-            scanf("%d",&matrix[i][j]);
+            scanf("%d", &matrix[i][j]);
         }
-
     }
 }
-void showMatrix(int matrix[][50], int row, int col)
+void showMatrix(int matrix[][10], int row, int col)
 {
-    int i,j;
-    printf("Entered Matrix \n");
+    int i, j;
+    printf("Entered Matrix is : \n");
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < col; j++)
@@ -26,45 +26,52 @@ void showMatrix(int matrix[][50], int row, int col)
         printf("\n");
     }
 }
-void sort(int matrix[][50],int row,int col)
+void ConvertLinearArray(int matrix[][10], int arr[], int row, int col, int size)
 {
-    int i,j,k,temp;
-    for(i=0; i<row; i++)
+    int i, j, k = 0;
+    for (i = 0; i < row; i++)
     {
-        for(j=0; j<col; j++)
+        for (j = 0; j < col; j++)
         {
-            for(k=j+1; k<col; k++)
+            arr[k] = matrix[i][j];
+            k++;
+        }
+    }
+}
+void sortArray(int arr[], int size)
+{
+
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i + 1; j < size; j++)
+        {
+            if (arr[i] > arr[j])
             {
-                if(matrix[i][j]>matrix[i][k])
-                {
-                    temp=matrix[i][j];
-                    matrix[i][j]=matrix[i][k];
-                    matrix[i][k]=temp;
-                }
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
     }
 }
-
 void main()
 {
-    int row,col,i,j,k,temp;
+    int row, col, size;
+    int matrix[10][10];
+    int arr[20];
     printf("Enter the number of rows : ");
-    scanf("%d",&row);
+    scanf("%d", &row);
     printf("Enter the number of columns : ");
-    scanf("%d",&col);
+    scanf("%d", &col);
+    size = row * col;
 
-    int matrix[50][50];
-    createMatrix(matrix,row,col);
-    showMatrix(matrix,row,col);
-    sort(matrix,row,col);
-    showMatrix(matrix,row,col);
+    createMatrix(matrix, row, col);
+    showMatrix(matrix, row, col);
+    ConvertLinearArray(matrix, arr, row, col, size);
+    sortArray(arr, size);
 
-    printf("The largest integer in the Matrix is : %d\n",matrix[row-1][col-1]);
-    printf("The 2nd largest integer in the Matrix is : %d\n",matrix[row-1][col-2]);
-    printf("The smallest integer in the Matrix is : %d\n",matrix[0][0]);
-    printf("The 2nd smallest integer in the Matrix is :%d \n",matrix[0][1]);
-
-
-
+    printf("The largest integer in the Matrix is : %d\n", arr[size - 1]);
+    printf("The 2nd largest integer in the Matrix is : %d\n", arr[size - 2]);
+    printf("The smallest integer in the Matrix is : %d\n", arr[0]);
+    printf("The 2nd smallest integer in the Matrix is :%d \n", arr[1]);
 }
