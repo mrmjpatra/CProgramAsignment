@@ -6,29 +6,25 @@
 int main()
 {
 
-    int num1,num2,num3;
+    int x,y,z,smallest;
 
     printf("Enter the first number\n");
-    scanf("%d",&num1);
+    scanf("%d",&x);
     printf("Enter the second number\n");
-    scanf("%d",&num2);
+    scanf("%d",&y);
     printf("Enter the third number\n");
-    scanf("%d",&num3);
-
-    if(num1<num2 && num1<num3)
+    scanf("%d",&z);
+    smallest=x;
+    if(y<x)
     {
-        printf("%d is the smallest number among %d,%d and %d ",num1,num1,num2,num3);
+        smallest=y;
     }
-    else if(num2<num1 && num2<num3)
+    else if(z<x)
     {
-        printf("%d is the smallest number among %d,%d and %d ",num2,num1,num2,num3);
-    }
-    else
-    {
-        printf("%d is the smallest number among %d,%d and %d ",num3,num1,num2,num3);
+        smallest=z;
     }
 
-
+    printf("The smallest number among %d, %d and %d is %d",x,y,z,smallest);
 
     return 0;
 }
