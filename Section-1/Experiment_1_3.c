@@ -4,26 +4,14 @@
 
 int main()
 {
-    int sub1, sub2, sub3, sub4, sub5;
-    // marks scan for subject-1
-    printf("Enter the marks in Subject-1\n");
-    scanf("%d", &sub1);
-    // marks scan for subject-2
-    printf("Enter the marks in Subject-2\n");
-    scanf("%d", &sub2);
-    // marks scan for subject-3
-    printf("Enter the marks in Subject-3\n");
-    scanf("%d", &sub3);
-    // marks scan for subject-4
-    printf("Enter the marks in Subject-4\n");
-    scanf("%d", &sub4);
-    // marks scan for subject-5
-    printf("Enter the marks in Subject-5\n");
-    scanf("%d", &sub5);
+    int s1, s2, s3;
+    float avg;
+    printf("Enter the marks in three subject\n");
+    scanf("%d %d %d", &s1, &s2, &s3);
 
-    float avg = (sub1 + sub2 + sub3 + sub4 + sub5) / 5.0;
+    avg = (s1 + s2 + s3) / 3.0;
 
-    if (avg >=70)
+    if (avg >= 70)
     {
         printf("You got first division in the exam");
     }

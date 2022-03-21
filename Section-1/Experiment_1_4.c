@@ -6,16 +6,14 @@
 int main()
 {
 
-    float radius,area,peri;
+    float r,area,peri;
     printf("Enter the radius of circle\n");
-    scanf("%f",&radius);
+    scanf("%f",&r);
 
-    area=PI*radius*radius;
-    peri=2*PI*radius;
+    area=PI*r*r;
+    peri=2*PI*r;
 
-    printf("The Area of The Circle with Radius %.2f is %.2f\n",radius,area);
-
-    printf("\nThe Perimeter of The Circle with Radius %.2f is %.2f\n",radius,peri);
+    printf("The area and perimeter of the circle is : %.2f and %.2f\n",area,peri);
 
     return 0;
 

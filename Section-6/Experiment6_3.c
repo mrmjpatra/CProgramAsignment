@@ -9,20 +9,23 @@ int main()
     int n, i, j, k;
     
     char arr[50];
+    printf("Enter the character\n");
+    gets(arr);
 
-    printf("How many character you want to enter\n");
-    scanf("%d", &n);
+    // printf("How many character you want to enter\n");
+    // scanf("%d", &n);
 
-    for (int i = 0; i < n; i++)
-    {
-        printf("\nEnter the %d character\n", i + 1);
-        arr[i] = getche();
-    }
+    // for (int i = 0; i < n; i++)
+    // {
+    //     printf("\nEnter the %d character\n", i + 1);
+    //     arr[i] = getche();
+    // }
 
 
     printf("\nYour entered character are : \n");
     puts(arr);
-
+    
+    n=strlen(arr);
     for (i = 0; i < n; i++)
     {
         for (j = i + 1; j < n; j++)

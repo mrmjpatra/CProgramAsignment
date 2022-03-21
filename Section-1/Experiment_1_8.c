@@ -1,14 +1,12 @@
 // using printf statement
 
-#include<stdio.h>
+#include <stdio.h>
 
-
-int main()
+void main()
 {
 
     printf("*\n");
     printf("**\n");
     printf("***\n");
     printf("****\n");
-    return 0;
 }

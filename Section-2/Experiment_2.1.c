@@ -2,7 +2,7 @@
 
 #include<stdio.h>
 
-int main(){
+void main(){
 
 float height, base,area;
 
@@ -14,7 +14,7 @@ scanf("%f",&base);
 /*printing the area of the triangle*/
 printf("The area of the triangle of height %f and base %f is %f",height,base,((1.0/2)*base*height));
 
-return 0;
+
 
 
 }
