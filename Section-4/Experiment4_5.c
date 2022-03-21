@@ -8,39 +8,38 @@ then an additional surcharge of 15% of total amount is charged.
 Write a program to read the name of a consumer and
 the number of units consumed and print the charge with his/her name.*/
 
-#include<stdio.h>
-#include<conio.h>
+#include <stdio.h>
+#include <conio.h>
 
-int main()
+void main()
 {
     char name[20];
-    float units,m1=0,m2=0,m3=0,amount;
+    float units, m1 = 0, m2 = 0, m3 = 0, amount;
 
     printf("Enter the Name of the Consumer\n");
     gets(name);
     printf("Enter the number of units consumed\n");
-    scanf("%f",&units);
+    scanf("%f", &units);
 
-    if(units<=200){
-        m1=units;
+    if (units <= 200)
+    {
+        m1 = units;
     }
-    else if(units>200 && units<=300){
-       m2=units-200;
+    else if (units > 200 && units <= 300)
+    {
+        m2 = units - 200;
     }
-    else if(units>300){
-        m3=units-300;
+    else if (units > 300)
+    {
+        m3 = units - 300;
     }
-    amount=(m1*0.80)+(m2*1.30)+(m3*2.00)+100;
-    
-    if(amount>400){
-        amount=amount+(amount*0.15);
+    amount = (m1 * 0.80) + (m2 * 1.30) + (m3 * 2.00) + 100;
+
+    if (amount > 400)
+    {
+        amount = amount + (amount * 0.15);
     }
     printf("The amount charged for the consumer ");
     puts(name);
-    printf("is %f",amount);
-
-
-
-
-    return 0;
+    printf("is %f", amount);
 }

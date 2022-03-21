@@ -4,9 +4,8 @@ y =| 0 for x = 0
 -  | 1 for x<0*/
 
 #include <stdio.h>
-#include <conio.h>
 
-int main()
+void main()
 {
     int x;
     printf("Enter the value of x\n");
@@ -24,5 +23,4 @@ int main()
     {
         printf("The value of y is: 0\n");
     }
-    return 0;
 }

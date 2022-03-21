@@ -1,22 +1,14 @@
 /*Write a program to input three numbers and find out the smallest.*/
 #include <stdio.h>
-#include <conio.h>
 
-int main()
+void main()
 {
     int num1, num2, num3;
 
-    // Input of four numbers from the user
+    // Input of three numbers from the user
 
-    printf("Enter first number:\n");
-    scanf("%d", &num1);
-
-    printf("Enter second number:\n");
-    scanf("%d", &num2);
-
-    printf("Enter third number:\n");
-    scanf("%d", &num3);
-
+    printf("Enter three number:\n");
+    scanf("%d %d %d", &num1, &num2, &num3);
     int smallest = num1;
     if (num2 < smallest && num2 < num3)
     {
@@ -33,6 +25,4 @@ int main()
 
         printf("%d is the smallest number", smallest);
     }
-
-    return 0;
 }

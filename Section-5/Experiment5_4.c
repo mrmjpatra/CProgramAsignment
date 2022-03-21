@@ -16,10 +16,6 @@ void main()
         {
             fac = fac * j;
         }
-        printf("%d\n", fac);
-
-
-
         if (i % 2 == 0)
         {
             sum = (sum - ((float)i / (float)(fac)));
