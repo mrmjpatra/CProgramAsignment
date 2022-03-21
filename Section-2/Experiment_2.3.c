@@ -8,7 +8,7 @@ void main()
 
     /*Input of two float point number*/
     printf("Enter the two number\n");
-    scanf("%f %f", &num1, num2);
+    scanf("%f %f", &num1,&num2);
     /*Printing of answer*/
 
     printf("The division of 1st number %.2f by second number %.2f is : %.2f", num1, num2, (num1 / num2));

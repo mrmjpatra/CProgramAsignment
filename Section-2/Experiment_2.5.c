@@ -1,4 +1,4 @@
-/* Use of typedef*/
+/* Rewrite the program mentioned in Experiment 2.2. However, rename the data types ‘float’ to ‘Decimal’ and ‘int’ to ‘integer’ by using typedef statement.Use of typedef*/
 #include<stdio.h>
 #include<math.h>
 

@@ -2,13 +2,14 @@
 
 #include<stdio.h>
 
-void main(){
+void main()
+{
 
-float item,z;
-printf("Enter the price of the item");
-scanf("%f",&item);
+    float item,paise;
+    printf("Enter the price of the item : ");
+    scanf("%f",&item);
 
-z=(item*100);
+    paise=(item*100);
 
-printf("The item price is %f paise",z);
+    printf("The item price is %f paise",paise);
 }
