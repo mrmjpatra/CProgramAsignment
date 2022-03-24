@@ -2,7 +2,7 @@
 #include <stdio.h>
 void transpose(int sparse[][3],int row)
 {
-    int matrix[row][3],k=0;
+    int matrix[3][row],k=0;
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < 3; j++)
