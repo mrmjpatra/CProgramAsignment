@@ -32,7 +32,7 @@ SNode *CreateSLL()
     if (start == NULL)
     {
         printf("\nOut of Memory");
-        return;
+        return start;
     }
 
     printf("Enter the info field of 1st Node\n");
@@ -105,6 +105,7 @@ SNode *InsertBegn(SNode *start)
     if (NewNode == NULL)
     {
         printf("\n Out of memory Space");
+        return start;
     }
     printf("Enter the data of the node at the begining\n");
     printf("Enter the info field of node\n");
@@ -114,7 +115,7 @@ SNode *InsertBegn(SNode *start)
     return start;
 }
 
-SNode *InserNodeAtEnd(SNode *start)
+void InserNodeAtEnd(SNode *start)
 {
     SNode *NewNode, *ptr;
     ptr = start;
@@ -122,7 +123,7 @@ SNode *InserNodeAtEnd(SNode *start)
     if (NewNode == NULL)
     {
         printf("\nOut of memory space");
-        return;
+        return start;
     }
     while (ptr->next != NULL)
     {
@@ -132,31 +133,36 @@ SNode *InserNodeAtEnd(SNode *start)
     scanf("%d", &NewNode->data);
     NewNode->next = NULL;
     ptr->next = NewNode;
-    return start;
+    printf("The new Node with info field %d added  to the linked list\n", NewNode->data);
 }
-SNode *InserNodeAtInter(SNode *start)
+void InserNodeAtInter(SNode *start)
 {
-    SNode *NewNode, *ptr;
-    ptr = start;
-    int item;
-    printf("Enter the data after which you want to the new node\n");
-    scanf("%d", &item);
+    SNode *NewNode, *ptr1, *ptr2;
+    int choice;
+    printf("Enter the info field after which you want to add the new node\n");
+    scanf("%d", &choice);
+    if (ptr1 == NULL)
+    {
+        printf("Empty List\n");
+    }
+
+    ptr1 = start;
+
+    while ((ptr1->data != choice) && (ptr1->next != NULL))
+    {
+        ptr1 = ptr1->next;
+    }
+    ptr2 = ptr1->next;
     NewNode = (SNode *)malloc(sizeof(SNode));
     if (NewNode == NULL)
     {
-        printf("\nOut of Meomory Space\n");
+        printf("\nOut of memory Space\n");
         return;
     }
-    while ((ptr->data != item) && (ptr->next != NULL))
-    {
-        ptr = ptr->next;
-    }
-    printf("Enter the info field of the Node\n");
+    printf("Enter the info field of new Node\n");
     scanf("%d", &NewNode->data);
-    NewNode->next = ptr->next;
-    ptr->next = NewNode;
-
-    return start;
+    NewNode->next = ptr2;
+    ptr1->next = NewNode;
 }
 
 SNode *DelFirstNode(SNode *start)
@@ -171,57 +177,48 @@ SNode *DelFirstNode(SNode *start)
     }
 
     start = ptr->next;
-    ptr->next = NULL;
     free(ptr);
+    ptr = NULL;
 
     return start;
 }
-SNode *DelLastNode(SNode *start)
+void DelLastNode(SNode *start)
 {
     SNode *ptr1, *ptr2;
     ptr1 = start;
-    if (start->next == NULL)
-    {
-        free(start);
-        start = NULL;
-        return start;
-    }
-    ptr1 = start;
-    ptr2 = start->next;
+    ptr2 = ptr1->next;
     while (ptr2->next != NULL)
     {
         ptr1 = ptr1->next;
-        ptr2 = ptr2->next;
+        ptr2 = ptr1->next;
     }
 
     ptr1->next = NULL;
     free(ptr2);
-
-    return start;
+    ptr2 = NULL;
 }
-SNode *DelInter(SNode *start)
+void DelInter(SNode *start)
 {
     SNode *ptr1, *ptr2;
-    int item;
-    printf("Enter the data after which you want to delete the node\n");
-    scanf("%d", &item);
-    ptr1 = start;
-   
+    int choice;
+    printf("Enter the info field after which you want to add the new node\n");
+    scanf("%d", &choice);
 
-    while (ptr1->data != item && ptr1->next != NULL)
+    ptr1 = start;
+
+    while ((ptr1->data != choice) && (ptr1->next != NULL))
     {
         ptr1 = ptr1->next;
     }
-    if (ptr1->next==NULL)
-    {
-        printf("\n%d is not found in the linked list.",item);
-        exit(0);
-    }
     ptr2 = ptr1->next;
+    if (ptr1->next == NULL)
+    {
+        printf("Its tha last node\n");
+    }
 
     ptr1->next = ptr2->next;
+    ptr2->next = NULL;
     free(ptr2);
-    return start;
 }
 
 void SortNode(SNode *start)
@@ -229,10 +226,10 @@ void SortNode(SNode *start)
 
     SNode *i, *j;
 
-    for (i = start; i!= NULL; i = i->next)
+    for (i = start; i != NULL; i = i->next)
     {
 
-        for (j = i->next; j!= NULL; j = j->next)
+        for (j = i->next; j != NULL; j = j->next)
         {
 
             if (i->data > j->data)
@@ -242,20 +239,19 @@ void SortNode(SNode *start)
                 j->data = temp;
             }
         }
-
     }
 }
 
 void main()
 {
-    SNode *start=NULL;
+    SNode *start = NULL;
     int choice;
-    
+
     while (1)
     {
         printf("Enter the Choice\n");
         printf("Press 1 for Create a single linked list.\n2 for Traverse a single linked list.\n3 for Insert a node at the beginning.\n4 for Insert a node at the end.\n5 for Insert a node at an intermediate position after a given node.\n6 for Delete the first node.\n7 for Delete the last node.\n8 for Delete an intermediate node after a given node.\n9 for Sorting the node values.\n0 for exit the program\n");
-        scanf("%d",&choice);
+        scanf("%d", &choice);
 
         switch (choice)
         {
@@ -270,42 +266,37 @@ void main()
             Traverse(start);
             break;
         case 3:
-            start=InsertBegn(start);
+            start = InsertBegn(start);
             Traverse(start);
             break;
         case 4:
-            start = InserNodeAtEnd(start);
+           InserNodeAtEnd(start);
             Traverse(start);
             break;
         case 5:
-            start = InserNodeAtInter(start);
+           InserNodeAtInter(start);
             Traverse(start);
             break;
         case 6:
-            start=DelFirstNode(start);
+            start = DelFirstNode(start);
             Traverse(start);
             break;
         case 7:
-            start=DelLastNode(start);
+            DelLastNode(start);
             Traverse(start);
             break;
         case 8:
-            start=DelInter(start);
+            DelInter(start);
             Traverse(start);
             break;
         case 9:
             SortNode(start);
             Traverse(start);
             break;
-        
+
         default:
             printf("Invalid!! Choice\n");
             break;
         }
-
-
     }
-    
-
-
 }

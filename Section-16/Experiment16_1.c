@@ -1,6 +1,6 @@
 /*Write a menu-based program to implement the following operations on a double linked list based on user’s choice.
-1. Create a single linked list.
-2. Traverse a single linked list.
+1. Create a double linked list.
+2. Traverse a double linked list.
 3. Insert a node at the beginning.
 4. Insert a node at the end
 5. Insert a node at an intermediate position after a given node.
@@ -30,7 +30,7 @@ DNode *CreateLinkList()
     if (start == NULL)
     {
         printf("\nOut of memory Space\n");
-        return;
+        return start;
     }
     printf("Enter the info of the first Node\n");
     scanf("%d", &start->info);
@@ -66,7 +66,6 @@ void InsertInfo(DNode *start, int item)
     NewNode->info = item;
     NewNode->prev = ptr;
     NewNode->next = NULL;
-
     ptr->next = NewNode;
     printf("A new node with info field %d added to the linked list\n", NewNode->info);
 }
@@ -91,30 +90,29 @@ void Traverse(DNode *start)
         printf("\n\n");
     }
 }
-void InsertNodeAtBegn(DNode *start)
+DNode *InsertNodeAtBegn(DNode *start)
 {
     DNode *NewNode;
-    int item;
     NewNode = (DNode *)malloc(sizeof(DNode));
+
     if (NewNode == NULL)
     {
-        printf("\nOut of Memory Space\n");
-        return;
+        printf("\nOut of memory space\n");
+        return start;
     }
-    printf("Enter the info for the New Node\n");
-    scanf("%d", &item);
-    NewNode->info = item;
-    NewNode->next = start;
+    else{
+    printf("Enter the info field New Node\n");
+    scanf("%d", &NewNode->info);
     NewNode->prev = NULL;
+    NewNode->next = start;
     start->prev = NewNode;
     start = NewNode;
-    Traverse(start);
+    }
 }
 
 void InsertAtEnd(DNode *start)
 {
     DNode *NewNode, *ptr;
-    int item;
     ptr = start;
     NewNode = (DNode *)malloc(sizeof(DNode));
     if (NewNode == NULL)
@@ -128,16 +126,15 @@ void InsertAtEnd(DNode *start)
     }
 
     printf("Enter the info for the New Node\n");
-    scanf("%d", &item);
-    NewNode->info = item;
+    scanf("%d", &NewNode->info);
     NewNode->next = NULL;
     NewNode->prev = ptr;
     ptr->next = NewNode;
 }
 void InsertAtInter(DNode *start)
 {
-    int choice, item;
-    DNode *NewNode, *ptr1,*ptr2;
+    int choice;
+    DNode *NewNode, *ptr1, *ptr2;
     printf("Enter the info field value after which you want to add the Node\n");
     scanf("%d", &choice);
     NewNode = (DNode *)malloc(sizeof(DNode));
@@ -151,22 +148,20 @@ void InsertAtInter(DNode *start)
     {
         ptr1 = ptr1->next;
     }
-    ptr2=ptr1->next;
+    ptr2 = ptr1->next;
     printf("Enter the info field of New Node\n");
-    scanf("%d", &item);
-    NewNode->info=item;
-    NewNode->prev=ptr1;
-    NewNode->next=ptr2;
-    ptr1->next=NewNode;
-    ptr2->prev=NewNode;
-
+    scanf("%d", &NewNode->info);
+    NewNode->prev = ptr1;
+    NewNode->next = ptr2;
+    ptr1->next = NewNode;
+    ptr2->prev = NewNode;
 }
 
-void DelFirstNode(DNode *start){
+DNode *DelFirstNode(DNode *start)
+{
     DNode *ptr;
-
     ptr = start;
-    if (start->next ==start->prev== NULL)
+    if (start->next == NULL && start->prev == NULL)
     {
         free(start);
         start = NULL;
@@ -176,16 +171,97 @@ void DelFirstNode(DNode *start){
     start = ptr->next;
     ptr->next = NULL;
     free(ptr);
+    ptr = NULL;
     return start;
+}
+void DelLastNode(DNode *start)
+{
+
+    DNode *ptr1, *ptr2;
+
+    ptr1 = start;
+    ptr2 = ptr1->next;
+    while (ptr2->next != NULL)
+    {
+        ptr1 = ptr1->next;
+        ptr2 = ptr1->next;
+    }
+
+    ptr1->next = NULL;
+    ptr2->prev = NULL;
+    free(ptr2);
+    ptr2 = NULL;
+}
+void DelInterNode(DNode *start)
+{
+    DNode *ptr1, *ptr2, *ptr3;
+    int choice;
+    ptr1 = start;
+    printf("Enter the info field of node after which you want to delete node\n");
+    scanf("%d", &choice);
+    while (ptr1->info != choice && ptr1->next != NULL)
+    {
+        ptr1 = ptr1->next;
+    }
+    ptr2 = ptr1->next;
+    ptr3 = ptr2->next;
+
+    ptr1->next = ptr2->next;
+    ptr3->prev = ptr1;
+    free(ptr2);
+    ptr2 = NULL;
 }
 void main()
 {
     DNode *start;
     start = CreateLinkList(start);
-    Traverse(start);
-    // InsertNodeAtBegn(start);
-    // InsertAtEnd(start);
-    // InsertAtInter(start);
-    DelFirstNode(start);
-    Traverse(start);
+    int choice;
+
+    while (1)
+    {
+        printf("Enter the Choice\n");
+        printf("Press \n1 for Create a double linked list.\n2 For Traverse a double linked list.\n3 For Insert a node at the beginning.\n4 for Insert a node at the end.\n5 For Insert a node at an intermediate position after a given node.\n6 For Delete the first node.\n7 For Delete the last node.\n8 For Delete an intermediate node after a given node.\n0 For exit the program\n");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 0:
+            exit(0);
+            break;
+        case 1:
+            start = CreateLinkList();
+            Traverse(start);
+            break;
+        case 2:
+            Traverse(start);
+            break;
+        case 3:
+            start = InsertNodeAtBegn(start);
+            Traverse(start);
+            break;
+        case 4:
+            InsertAtEnd(start);
+            Traverse(start);
+            break;
+        case 5:
+            InsertAtInter(start);
+            Traverse(start);
+            break;
+        case 6:
+            start = DelFirstNode(start);
+            Traverse(start);
+            break;
+        case 7:
+            DelLastNode(start);
+            Traverse(start);
+            break;
+        case 8:
+            DelInterNode(start);
+            Traverse(start);
+            break;
+        default:
+            printf("Invalid!! Choice\n");
+            break;
+        }
+    }
 }
