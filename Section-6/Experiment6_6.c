@@ -77,7 +77,7 @@ int deleteElement(int size, int arr[], char ch)
 }
 
 //Searching of the element
-void searchElement(int size, int arr[], char ch)
+int searchElement(int size, int arr[], char ch)
 {
     int search;
     printf("Enter the element which you want to search in the Array-%c\n", ch);
@@ -88,14 +88,12 @@ void searchElement(int size, int arr[], char ch)
         if (arr[i] == search)
         {
             printf("%d is present in the Array-%c\n", search, ch);
-            break;
-        }
-        else
-        {
-            printf("%d is not present in the Array-%c\n", search, ch);
-            break;
+            return 1;
         }
     }
+    
+    printf("%d is not present in the Array-%c\n", search, ch);
+    return 0;
 }
 
 //Sorting of Array
@@ -151,7 +149,7 @@ int mergeAToB(int size1, int size2, int arrA[], int arrB[], int arrC[])
 void main()
 {
 
-    int choice, A[50], B[50], C[50], sizeA, sizeB, sizeC;
+    int choice, A[50], B[50], C[50], sizeA, sizeB, sizeC,s;
 
     printf("Enter the Size of Array A : ");
     scanf("%d", &sizeA);
@@ -205,11 +203,11 @@ void main()
             break;
 
         case 7:
-            searchElement(sizeA, A, 'A');
+            s=searchElement(sizeA, A, 'A');
             break;
 
         case 8:
-            searchElement(sizeB, B, 'B');
+            s=searchElement(sizeB, B, 'B');
             break;
 
         case 9:
