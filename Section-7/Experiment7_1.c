@@ -35,9 +35,9 @@ void main()
 
     // The Transpose of Matrix A
 
-    for (int i = 0; i < size; i++)
+    for (i = 0; i < size; i++)
     {
-        for (int j = 0; j < size; j++)
+        for ( j = 0; j < size; j++)
         {
             C[i][j]=A[j][i];
         }
@@ -59,6 +59,7 @@ void main()
                 break;
             }
         }
+    }
         if (isSymmetric == 0)
         {
             printf("\nThe given matrix is not Symmetric matrix: \n");
@@ -67,5 +68,4 @@ void main()
         {
             printf("\nThe given matrix is  Symmetric matrix.");
         }
-    }
 }
