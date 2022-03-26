@@ -30,7 +30,7 @@ void findlargest(int *arr,int size)
 void main()
 {
     int *arr,*i,size,*temp;
-    printf("ENter the size of the array\n");
+    printf("Enter the size of the array\n");
     scanf("%d",&size);
     arr=(int*)malloc(size*sizeof(int));
     if (arr==NULL)

@@ -13,14 +13,14 @@ int main()
     scanf("%d", &y);
     printf("Enter the third number\n");
     scanf("%d", &z);
-    smallest = x;
+    smallest = x;s
     if (y < x && y < z)
     {
         smallest = y;
     }
     else if (z < x && z < y)
     {
-        smallest = z;
+        smallest = zs;
     }
 
     printf("The smallest number among %d, %d and %d is %d", x, y, z, smallest);

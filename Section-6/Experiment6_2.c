@@ -1,53 +1,41 @@
-/*Write a program to input ‘n’ numbers and print the 2nd largest and 2nd smallest number.*/
+/*Write a program to input ‘n’ numbers and print the 2nd largest and 2nd smallest numbers.*/
+
 
 #include <stdio.h>
 
 int main()
 {
-    int n, num[500], smallest, largest;
+    int n, arr[500],temp;
 
     printf("How many number you want to enter\n");
     scanf("%d", &n);
-
+    printf("Enter %d number : \n",n);
     for (int i = 0; i < n; i++)
     {
-        printf("Enter %d number : ", i + 1);
-        scanf("%d", &num[i]);
+        
+        scanf("%d", &arr[i]);
     }
 
     printf("The entered number are : \n");
     for (int i = 0; i < n; i++)
     {
-        printf("%d  ", num[i]);
+        printf("%d  ", arr[i]);
     }
-    printf("\n\n");
-    smallest = num[0];
 
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)
         {
-            if (num[j] < num[i])
+            if (arr[j] < arr[i])
             {
-                smallest = num[j];
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
         }
     }
-    printf("\n");
-    printf("The smallest number is %d", smallest);
-
-    largest=num[0];
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i + 1; j < n; j++)
-        {
-            if (num[j] > num[i])
-            {
-                largest = num[j];
-            }
-        }
-    }
-    printf("\n");
-    printf("The greatest number is %d", largest);
+    
+    printf("\nThe smallest number is %d\n", arr[0]);
+    printf("The greatest number is %d", arr[n-1]);
     return 0;
 }

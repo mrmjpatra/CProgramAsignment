@@ -1,7 +1,7 @@
 /*Write a program to read ‘n’ characters and then delete the duplicate characters.*/
 
 #include <stdio.h>
-#include <conio.h>
+
 #include <string.h>
 
 int main()

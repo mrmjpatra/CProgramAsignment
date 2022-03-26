@@ -2,14 +2,13 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
 
-    int n1, n2, hcf, lcm, a, b;
+    int n1, n2, hcf, lcm;
     printf("Enter two interger to find HCF And LCM\n");
     scanf("%d %d", &n1, &n2);
-    a = n1;
-    b = n2;
+
     for (int i = 1; i <= n1 && i <= n2; i++)
     {
 
@@ -19,7 +18,7 @@ int main()
         }
     }
     printf("The HCF of two interger is %d\n", hcf);
-    lcm = (a * b) / hcf;
+    lcm = (n1 * n2) / hcf;
     printf("The LCM of two integer is %d\n", lcm);
-    return 0;
+    
 }
