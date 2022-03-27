@@ -33,20 +33,24 @@ void main()
     }
     printf("\n");
 
-    printf("The Upper Triangular matrix is : \n");
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < i; j++)
+        {
+            if (i > j)
+            {
+                A[i][j] = 0;
+            }
+        }
+    }
+    printf("The entered matrix is : \n");
 
     for (i = 0; i < size; i++)
     {
         for (j = 0; j < size; j++)
         {
-            if (i > j)
-                {
-                    printf(" \t");
-                }
-            else{
-                    printf("%d\t", A[i][j]);
-                }
-        }    
+            printf("%d\t", A[i][j]);
+        }
         printf("\n");
     }
     printf("\n");
