@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 void Transpose(sparse[][5],int row,int col);
 void SparseMatrix(int mati[][3])
 {
