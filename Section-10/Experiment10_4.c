@@ -13,7 +13,7 @@ void create(int row, int col, int matrix[row][col])
         }
     }
 }
-void print(int m, int n, int arr[m][n])
+void print(int m, int n, int mat[m][n])
 {
     int i, j;
     for (i = 0; i < m; i++)
@@ -22,37 +22,38 @@ void print(int m, int n, int arr[m][n])
         for (j = 0; j < n; j++)
         {
 
-            printf("%5d ", arr[i][j]);
+            printf("%5d ", mat[i][j]);
         }
         printf("\n");
     }
     printf("\n");
 }
-void transposeMatrix(int row, int col, int matrix[row][col], int trans[col][row])
+void transpose(int row, int col, int matrix[row][col])
 {
 
     for (int i = 0; i < col; i++)
     {
         for (int j = 0; j < row; j++)
         {
-            trans[i][j] = matrix[j][i];
+            printf("%5d",matrix[j][i]);
         }
+        printf("\n");
     }
 }
 
-int main()
+void main()
 {
     int row, col;
     printf("Enter the number of row : ");
     scanf("%d", &row);
     printf("Enter the number of column : ");
     scanf("%d", &col);
-    int matrix[row][col], trans[col][row];
+    int matrix[row][col];
     create(row, col, matrix);
     printf("The entered matrix is : \n");
     print(row, col, matrix);
-    transposeMatrix(row, col, matrix, trans);
     printf("The tranpose of entered matrix is :\n");
-    print(col, row, trans);
-    return 0;
+    transpose(row, col, matrix);
+    
+
 }

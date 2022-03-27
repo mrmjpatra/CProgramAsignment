@@ -12,13 +12,13 @@ void main()
 
     printf("Enter the First position : ");
     scanf("%d", &n1);
-    printf("Enter the First position : ");
+    printf("Enter the last position : ");
     scanf("%d", &n2);
     len = strlen(str);
 
     if (n1 < len && n2 < len && n1 < n2)
     {
-
+        printf("The substring is : ");
         for (int i = n1; i <= n2; i++)
         {
             printf("%c", str[i]);

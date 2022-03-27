@@ -4,14 +4,13 @@
 void main()
 {
     int arr[50], size, i, temp, j;
-    int *ptr = arr;
 
     printf("Enter the size of the array : ");
     scanf("%d", &size);
-
+    printf("Enter the %d elements to the array\n",size);
     for (int i = 0; i < size; i++)
     {
-        scanf("%u", ptr + i);
+        scanf("%d", (arr + i));
     }
 
     for (i = 0, j = size - 1; i < size / 2; i++, j--)
@@ -20,9 +19,9 @@ void main()
         *(arr + i) = *(arr + j);
         *(arr + j) = temp;
     }
-
+    printf("The array in reverse order is : \n");
     for (int i = 0; i < size; i++)
     {
-        printf("%u\t", *(ptr + i));
+        printf("%d\t", *(arr + i));
     }
 }

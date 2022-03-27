@@ -24,5 +24,6 @@ void main()
 
     printf("Enter the String\n");
     gets(str);
+    printf("String in upprer case is \n");
     toUperCase(str);
 }
