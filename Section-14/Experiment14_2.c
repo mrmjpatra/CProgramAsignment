@@ -39,8 +39,8 @@ void SparseMatrix(int mati[][3])
 void Transpose(sparse[][5],int row,int col){
     printf("The transpose of the matrix: \n\n");
 
-    for(int i=0;i<5;i++){
-        for(int j=0;j<4;j++){
+    for(int i=0;i<col;i++){
+        for(int j=0;j<row;j++){
             printf("%-5d",sparse[j][i]);
         }
         printf("\n\n");
