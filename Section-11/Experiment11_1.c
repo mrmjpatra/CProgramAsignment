@@ -11,9 +11,8 @@ struct Student
 {
     int rollNumber;
     char name[100];
-    float sub1;
-    float sub2;
-    float sub3;
+    float sub1,sub2,sub3;
+
 };
 
 void main()
@@ -38,15 +37,12 @@ void main()
     for (int i = 0; i < 3; i++)
     {
         tmark[i] = (studs[i].sub1 + studs[i].sub2 + studs[i].sub3);
-    }
-    for (int i = 0; i < 3; i++)
-    {
         avg[i] = (float)tmark[i] / 3;
     }
 
     for (int i = 0; i < 3; i++)
     {
         printf("---------------------------------------\n");
-        printf("The total mark and average for the Student-%d is :\nMark-%d\nAverage-%f\n", i + 1, tmark[i], avg[i]);
+        printf("The total mark and average for the Student-%d is :\nMark-%d\nAverage-%.2f\n", i + 1, tmark[i], avg[i]);
     }
 }

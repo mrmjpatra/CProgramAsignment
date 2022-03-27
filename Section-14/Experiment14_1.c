@@ -58,7 +58,7 @@ void main()
             scanf("%d", &matrix[i][j]);
         }
     }
-    printf("The Entered Matrix is\n");
+    printf("The Sparse Matrix is\n");
     for (i = 0; i < ROW; i++)
     {
         for (j = 0; j < COL; j++)
@@ -67,5 +67,6 @@ void main()
         }
         printf("\n");
     }
+    printf("The Sparse Matrix in 3-Tuple form\n");
     sparseMatrix(matrix, ROW, COL);
 }

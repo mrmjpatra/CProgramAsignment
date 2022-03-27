@@ -1,3 +1,5 @@
+/*Write a program to find the transpose of a sparse matrix given in 3-tuple from.*/
+
 #include <stdio.h>
 void Transpose(sparse[][5],int row,int col);
 void SparseMatrix(int mati[][3])

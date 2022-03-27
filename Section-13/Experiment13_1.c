@@ -26,7 +26,7 @@ void main()
     for ( i = n; i < n+size; i++)
     {
         (sum)+=(*i);
-        printf("%d\n",*i);       
+        printf("%d\t",*i);       
     }
 
     avg=(float)sum/size;
