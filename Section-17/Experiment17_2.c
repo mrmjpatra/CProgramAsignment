@@ -8,7 +8,6 @@ void main(int argc,char *argv[])
  
  FILE *source,*target;
  char c;
-
  source=fopen(argv[1],"r");
 
  if (source==NULL)
