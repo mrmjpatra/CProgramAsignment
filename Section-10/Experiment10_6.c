@@ -4,20 +4,20 @@
 
 void fun(char str[100], int n)
 {
-    char *arr=str;
+
     int i, j, k;
     printf("\nYour entered String is : \n");
-    puts(*(&arr));
+    puts(*(&str));
 
     for (i = 0; i < n; i++)
     {
         for (j = i + 1; j < n; j++)
         {
-            if (*(&arr[i]) == *(&arr[j]))
+            if (*(&str[i]) == *(&str[j]))
             {
                 for (k = j; k < n; k++)
                 {
-                    *(&arr[k]) = *(&arr[k + 1]);
+                    *(&str[k]) = *(&str[k + 1]);
                 }
 
                 n = n - 1;
@@ -26,7 +26,7 @@ void fun(char str[100], int n)
         }
     }
     printf("\nAfter deleting the duplicate character: \n");
-    puts(*(&arr));
+    puts(*(&str));
 }
 void main()
 {

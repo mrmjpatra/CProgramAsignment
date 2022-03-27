@@ -1,7 +1,7 @@
 //Write a function using pointers that compares two integer arrays to see whether they are identical. The function returns 1 if they are identical, 0 otherwise.
 #include<stdio.h>
 
-void createArray(int arr[100],int size)
+void createArray(int arr[],int size)
 {
     printf("Enter the elements to the array\n");
     for(int i=0; i<size; i++)
@@ -9,7 +9,7 @@ void createArray(int arr[100],int size)
         scanf("%d",(arr+i));
     }
 }
-void show(int arr[100],int size)
+void show(int arr[],int size)
 {
     for(int i=0; i<size; i++)
     {
@@ -17,7 +17,7 @@ void show(int arr[100],int size)
     }
 }
 
-int compareArray(int arr1[100],int arr2[100],int size1,int size2)
+int compareArray(int arr1[],int arr2[],int size1,int size2)
 {
     int isSame;
     if(size1!=size2)

@@ -1,4 +1,4 @@
-/* */
+/* Write a program using function to input a m x n matrix (of integers) and then find the largest, the 2nd largest, the smallest, and the 2nd smallest numbers in it.*/
 #include <stdio.h>
 void createMatrix(int matrix[][10], int row, int col)
 {

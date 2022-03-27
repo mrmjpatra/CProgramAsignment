@@ -1,11 +1,6 @@
 /* Write a function using pointers to add two matrices and return the resultant matrix. Use this function within the main function to add two matrices.*/
 #include<stdio.h>
 
-//void addMatrix(int A[][3],int B[][3],int C[][3],int size)
-
-
-
-
 void createMatrix(int mat[100][100],int size)
 {
     for(int i=0; i<size; i++)
@@ -31,7 +26,7 @@ void show(int a[100][100],int size)
     }
 
 }
-void addMatrix(int A[100][100],int B[100][100],int C[100][100],int size)
+void addMatrix(int A[][100],int B[][100],int C[][100],int size)
 {
 
     for(int i=0; i<size; i++)
@@ -56,24 +51,11 @@ void main()
     createMatrix(b,size);
     printf("The matrix-A is\n");
     show(a,size);
-    printf("\n");
-    printf("The matrix-A is\n");
+    printf("\nThe matrix-B is\n");
     show(b,size);
-
     addMatrix(a,b,c,size);
-
     printf("The sum of two matrix is\n");
-
-
-
-    for(int i=0; i<size; i++)
-    {
-        for(int j=0; j<size; j++)
-        {
-            printf("%7d\t", (*(*(c+i)+j)));
-        }
-        printf("\n");
-    }
+    show(c,size);
 
 
 }
