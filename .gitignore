@@ -2,3 +2,5 @@
 *.o
 *.app
 *app
+*.DS_Store
+

@@ -115,26 +115,6 @@ SNode *InsertBegn(SNode *start)
     return start;
 }
 
-void InserNodeAtEnd(SNode *start)
-{
-    SNode *NewNode, *ptr;
-    ptr = start;
-    NewNode = (SNode *)malloc(sizeof(SNode));
-    if (NewNode == NULL)
-    {
-        printf("\nOut of memory space");
-        return start;
-    }
-    while (ptr->next != NULL)
-    {
-        ptr = ptr->next;
-    }
-    printf("Enter the info of the Node at the end\n");
-    scanf("%d", &NewNode->data);
-    NewNode->next = NULL;
-    ptr->next = NewNode;
-    printf("The new Node with info field %d added  to the linked list\n", NewNode->data);
-}
 void InserNodeAtInter(SNode *start)
 {
     SNode *NewNode, *ptr1, *ptr2;
@@ -201,7 +181,7 @@ void DelInter(SNode *start)
 {
     SNode *ptr1, *ptr2;
     int choice;
-    printf("Enter the info field after which you want to add the new node\n");
+    printf("Enter the info field after which you want to Delete the new node\n");
     scanf("%d", &choice);
 
     ptr1 = start;
@@ -245,7 +225,7 @@ void SortNode(SNode *start)
 void main()
 {
     SNode *start = NULL;
-    int choice;
+    int choice,item;
 
     while (1)
     {
@@ -270,7 +250,9 @@ void main()
             Traverse(start);
             break;
         case 4:
-           InserNodeAtEnd(start);
+        printf("Enter the info field of the node\n");
+        scanf("%d",&item);
+           InsertAtEndSLL(start,item);
             Traverse(start);
             break;
         case 5:

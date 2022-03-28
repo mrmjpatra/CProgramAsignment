@@ -19,7 +19,7 @@ struct Node
 };
 
 typedef struct Node DNode;
-void InsertInfo(DNode *start, int item);
+void InsertAtEnd(DNode *start, int item);
 
 DNode *CreateLinkList()
 {
@@ -42,13 +42,13 @@ DNode *CreateLinkList()
     {
         printf("\nEnter the value(info value) of New Node\n");
         scanf("%d", &item);
-        InsertInfo(start, item);
+        InsertAtEnd(start, item);
         printf("\nDo you want to add more nodes \nPress Y to continue and press any other key to quit\n");
         ch = getche();
     }
     return start;
 }
-void InsertInfo(DNode *start, int item)
+void InsertAtEnd(DNode *start, int item)
 {
     DNode *NewNode, *ptr;
     ptr = start;
@@ -108,28 +108,6 @@ DNode *InsertNodeAtBegn(DNode *start)
     start->prev = NewNode;
     start = NewNode;
     }
-}
-
-void InsertAtEnd(DNode *start)
-{
-    DNode *NewNode, *ptr;
-    ptr = start;
-    NewNode = (DNode *)malloc(sizeof(DNode));
-    if (NewNode == NULL)
-    {
-        printf("\nOut of Memory Space\n");
-        return;
-    }
-    while (ptr->next != NULL)
-    {
-        ptr = ptr->next;
-    }
-
-    printf("Enter the info for the New Node\n");
-    scanf("%d", &NewNode->info);
-    NewNode->next = NULL;
-    NewNode->prev = ptr;
-    ptr->next = NewNode;
 }
 void InsertAtInter(DNode *start)
 {
@@ -215,7 +193,7 @@ void main()
 {
     DNode *start;
     start = CreateLinkList(start);
-    int choice;
+    int choice,item;
 
     while (1)
     {
@@ -240,7 +218,9 @@ void main()
             Traverse(start);
             break;
         case 4:
-            InsertAtEnd(start);
+                printf("Enter the info field of the node\n");
+        scanf("%d",&item);
+            InsertAtEnd(start,item);
             Traverse(start);
             break;
         case 5:
